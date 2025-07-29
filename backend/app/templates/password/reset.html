@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password - FastShip</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sedgwick+Ave+Display&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: "Manrope";
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .container {
+            --padding: 30px;
+            position: relative;
+            width: 90vw;
+            max-width: 560px;
+            margin: 40px auto;
+            padding: var(--padding);
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+        
+        form {
+            font-family: "Manrope";
+
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input  {
+            padding: .5em .75em;
+            font-size: 18px;
+            border-radius: .45em;
+
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+        }
+
+        input[type=submit] {
+            color: white;
+            background-color: black;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Reset Password</h1>
+
+        <form action="{{ reset_url }}" method="post">
+
+            <input type="password" name="password" placeholder="Enter a new password">
+            <input type="submit" value="Reset">
+
+        </form>
+    </div>
+</body>
+
+</html>

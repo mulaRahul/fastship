@@ -1,0 +1,14 @@
+venv
+.venv
+.env
+
+migrations
+alembic.ini
+
+**/__pycache__
+**/.pytest_cache__
+
+**/*.rdb
+
+postgres_data
+redis_data

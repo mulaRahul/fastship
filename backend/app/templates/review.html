@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Review - FastShip</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sedgwick+Ave+Display&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: "Manrope";
+        }
+
+        .row {
+            display: flex;
+            margin-inline: auto;
+            justify-content: center;
+        }
+
+        .container {
+            --padding: 30px;
+            position: relative;
+            width: 90vw;
+            max-width: 560px;
+            margin: 40px auto;
+            padding: var(--padding);
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: white;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        p {
+            color: #999;
+            text-align: center;
+        }
+        
+        form {
+            width: 100%;
+            font-family: "Manrope";
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* When no radio input is checked */
+        .rating:has(:invalid) {
+            width: fit-content;
+            outline: 2px dotted red;
+            outline-offset: 5px;
+            border-radius: .5em;
+        }
+
+        textarea  {
+            width: 100%;
+            padding: .5em .75em;
+            font-size: 14px;
+            border-radius: .45em;
+
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+        }
+
+        ::placeholder {
+            color: #ccc;
+        }
+
+        /* Remove default radio input dots */
+        input[type=radio] {
+            display: none;
+        }
+
+        label {
+            padding: 1em 1.5em;
+            opacity: .2;
+            transition: opacity 200ms, transform 200ms;
+        }
+
+        label:hover {
+            z-index: 1;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Set color of each radio input label based on index */
+        label:nth-of-type(1) {
+            background-color: hsl(0, 100%, 50%);
+        }
+        label:nth-of-type(2) {
+            background-color: hsl(25, 100%, 50%);
+        }
+        label:nth-of-type(3) {
+            background-color: hsl(50, 100%, 50%);
+        }
+        label:nth-of-type(4) {
+            background-color: hsl(75, 100%, 50%);
+        }
+        label:nth-of-type(5) {
+            background-color: hsl(100, 100%, 50%);
+        }
+
+        label:first-of-type {
+            border-radius: .5em;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        label:last-of-type {
+            border-radius: .5em;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        /* Select the adjacent label to a selected radio input */
+        input:checked + label {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        input[type=submit] {
+            padding: .5em .75em;
+            font-size: 14px;
+            border-radius: .45em;
+            color: white;
+            background-color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey!</h1>
+        <p>We'd love your candid feedback if you have a moment. Just click one of the ratings below, and you're done!</p>
+
+        <form method="post" action="{{ review_url }}">
+            <p>How would you rate our service?*</p>
+
+            <div class="row rating">
+                <input required type="radio" name="rating" id="1" value="1">
+                <label for="1">1</label>
+
+                <input required type="radio" name="rating" id="2" value="2">
+                <label for="2">2</label>
+
+                <input required type="radio" name="rating" id="3" value="3">
+                <label for="3">3</label>
+
+                <input required type="radio" name="rating" id="4" value="4">
+                <label for="4">4</label>
+                
+                <input required type="radio" name="rating" id="5" value="5" checked>
+                <label for="5">5</label>
+            </div>
+
+            <p>Is there anything else you want to add?</p>
+            <textarea name="comment" rows="3" placeholder="Describe your experience..."></textarea>
+            
+            <input type="submit" value="Submit Review">
+        
+        </form>
+    </div>
+</body>
+</html>

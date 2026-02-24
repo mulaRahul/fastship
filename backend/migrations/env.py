@@ -16,9 +16,7 @@ from app.database.models import Shipment, Seller, DeliveryPartner
 config = context.config
 config.set_main_option(
     "sqlalchemy.url", 
-    # db_settings.POSTGRES_URL
-    # "postgresql+asyncpg://postgres:strong@localhost:5433/fastship",
-    "postgresql+asyncpg://fastship_user:WPxZ92W2aaNNeyCE2FmcUwcfDrT7qBuA@dpg-cvj6vqer433s73fqf47g-a.oregon-postgres.render.com/fastship"
+    db_settings.POSTGRES_URL
 )
 
 # Interpret the config file for Python logging.
